@@ -1,0 +1,41 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+<h5>Localidades</h5>
+<div style="display:flex aling:center">
+  <a class="btn btn-primary" href="/localidades/new"> Nueva localidad </a>
+  <form class="form-inline md-form mr-auto mb-4" action="" enctype="multipart/form-data" method="POST">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search" id="search" required>
+    <select class="form-select" aria-label="Default select example" name="type" id="type" required>
+      <option selected>Buscar por</option>
+      <option value="id">id</option>
+      <option value="departamento_id">departamento_id</option>
+    </select>
+    <button class="btn btn-danger btn-rounded btn-sm my-0" type="submit">Search</button>
+  </form>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">nombre</th>
+      <th scope="col">departamento_id</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for localidad in localidades %}
+    <tr>
+      <th scope="row">{{ localidad.id }}</th>
+      <td>{{ localidad.nombre }}</td>
+      <td>{{ localidad.departamento_id }}</td>
+      {% raw %}
+      <td> <a class="btn btn-primary" href="{{ departamento.link_edit }}"> Edit </a></td>
+      {% endraw %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{%endblock%}

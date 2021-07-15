@@ -1,0 +1,24 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+<h5>Provincias</h5>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for provincia in provincias %}
+    <tr>
+      <th scope="row">{{ provincia.id }}</th>
+      <td>{{ provincia.nombre }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{%endblock%}

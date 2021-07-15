@@ -1,0 +1,32 @@
+{%extends 'layout.html'%}
+
+{%block body%}
+<h5>Departamentos</h5>
+
+<form action="" enctype="multipart/form-data" method="POST">
+  <div class="form-group row">
+    <label for="id" class="col-sm-2 col-form-label">ID</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" name="id"  id="id" placeholder="{{ departamento.id if departamento else 'Ingrese id' }} ">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="{{ departamento.nombre if departamento else 'Ingrese Nombre'}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="provincia_id" class="col-sm-2 col-form-label">Provincia id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" name="provincia_id" id="provincia_id" placeholder="{{ departamento.provincia_id if departamento else 'Ingrese provincia'}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">{{ 'Guardar Cambios' if departamento else 'Crear nuevo departamento'}}</button>
+    </div>
+  </div>
+</form>
+
+{%endblock%}
